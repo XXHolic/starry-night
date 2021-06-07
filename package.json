@@ -1,0 +1,19 @@
+{
+  "name": "jade-vine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XXHolic/jade-vine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XXHolic/jade-vine/issues"
+  },
+  "homepage": "https://github.com/XXHolic/jade-vine#readme"
+}

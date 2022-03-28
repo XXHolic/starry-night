@@ -1,5 +1,5 @@
 {
-  "name": "jade-vine",
+  "name": "starry-night",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/XXHolic/jade-vine.git"
+    "url": "git+https://github.com/XXHolic/starry-night.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/XXHolic/jade-vine/issues"
+    "url": "https://github.com/XXHolic/starry-night/issues"
   },
-  "homepage": "https://github.com/XXHolic/jade-vine#readme"
+  "homepage": "https://github.com/XXHolic/starry-night#readme"
 }

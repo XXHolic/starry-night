@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compressImg": "node script/compressImg.js",
+    "format": "node script/format.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/XXHolic/starry-night/issues"
   },
-  "homepage": "https://github.com/XXHolic/starry-night#readme"
+  "homepage": "https://github.com/XXHolic/starry-night#readme",
+  "dependencies": {
+    "tinify": "^1.6.1"
+  }
 }

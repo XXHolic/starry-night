@@ -123,6 +123,9 @@ h 为时间步长。
 
 最近看了[《贝奥武夫》][url-see]，看到里面的反派怎么这么眼熟，去查了下原来这个电影是本人动作捕捉后再 CG 化。
 
+![1-see][url-local-see]
+
 </details>
 
 [url-see]:https://movie.douban.com/subject/1792917/
+[url-local-see]:./image/poster.png

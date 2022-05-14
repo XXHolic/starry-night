@@ -1,13 +1,16 @@
-# filed play
+# Filed Play：简介
 ## <a name="index"></a> 目录
 - [引子](#start)
+- [What?](#what)
+- [How this project works?](#how)
+- [Float packing](#float)
 - [参考资料](#reference)
 
 ## <a name="start"></a> 引子
-在尝试数学函数可视化绘制的时候，发现了一个有趣的库 [Field Play][url-1] ，对 README 中的说明进行部分翻译记录，做个初步的了解。
+在尝试数学函数可视化的时候，发现了一个有趣的库 [Field Play][url-1] ，对 README 中的说明进行部分翻译记录，做个初步了解。
 
-## What?
-让我们为网格上的每个点指定一个向量（1，0）。这意味着我们有一个箭头，指向右边：
+## <a name="what"></a> What?
+让我们为网格上的每个点指定一个向量 `(1, 0)` 。这意味着我们有一个箭头，指向右边：
 
 ![2-1][url-local-1]
 
@@ -18,8 +21,8 @@
 当我们给空白区上的每个点分配一个向量时，我们创建了一个称为 `向量场(Vector Field)` 的数学结构。
 
 让我们创建一个更有趣的向量场：
-- `y` 坐标为偶数的点得到向量 `（1，0）`；
-- `y` 坐标为奇数的点得到一个相反的向量 `（-1，0）`；
+- `y` 坐标为偶数的点得到向量 `(1, 0)`；
+- `y` 坐标为奇数的点得到一个相反的向量 `(-1, 0)`；
 
 ![2-3][url-local-3]
 
@@ -32,7 +35,7 @@
 v.x = -2.0 * mod(floor(y), 2.0) + 1.0;
 v.y = 0.0;
 ```
-整数相除 `y/2` 后的余数可以是 1 或 0 。然后我们变换余数，使最终向量为（-1，0）或（1，0）。
+整数相除 `y/2` 后的余数可能是 1 或 0 。然后我们变换余数，使最终向量为 `(-1, 0)` 或 `(1, 0)` 。
 
 到目前为止，我们只使用了速度向量的一个分量 `v.x` ，粒子只水平移动。让我们试着设置所有两个分量，看看会发生什么
 ```
@@ -49,17 +52,17 @@ v.y = -2.0 * mod(floor(x), 2.0) + 1.0;
 
 事实证明，向量场是非常灵活的生成框架。
 
-## How this project works?
+## <a name="how"></a> How this project works?
 这个项目的灵感来自 Vladimir Agafonkin 的文章：[How I built a wind map with WebGL][url-2]。Vladimir 演示了如何完全在 GPU 上以每秒 60 帧的速度渲染多达 100 万个粒子。
 
 我使用了几乎相同的技术，但做了一些修改：
-1. 矢量场用 GLSL 代码定义的着色器语言，因此数学公式可以自由表示
-2. 粒子的位置在 GPU 上用四阶 [Runge-Kutta][url-3] 法计算
-3. 每个维度 X 和 Y 都是独立计算的，因此我们可以更准确地存储位置
-4. 使用 [panzoom][url-4] 库添加了平移/缩放功能
-5. 矢量场定义使用 [query-state][url-5] 库保存在 URL 中。这样你可以方便的把你的向量场加入书签/分享
+1. 向量场是用着色器语言 GLSL 代码定义的，因此数学公式可以自由表示。
+2. 粒子的位置在 GPU 上用四阶 [Runge-Kutta][url-3] 法计算。
+3. 每个维度 X 和 Y 都是独立计算的，因此我们可以更准确地存储位置。
+4. 使用 [panzoom][url-4] 库添加了平移/缩放功能。
+5. 向量场定义使用 [query-state][url-5] 库保存在 URL 中。这样你可以方便的把你的向量场加入书签/分享。
 
-## Float packing
+## <a name="float"></a> Float packing
 基于 WebGL 计算的核心思想非常简单。
 
 GPU 可以非常快速地渲染图像。每个图像都是像素的集合。每个像素只是一个代表颜色的数字，通常以 32 位（RGBA 格式）写入。
@@ -127,21 +130,18 @@ Frame 1:
 
 这对我来说似乎很疯狂，因为我认为这会影响性能。但使用这种方法，就连我的低端安卓手机也没有遇到问题。
 
-`encodeFloatRGBA()` 使用所有 32 位将浮点编码为 RGBA 向量。我在 stackoverflow 的某个地方发现了它的应用，我不确定这是否是最好的处理方式（如果你知道得更好，请让我知道）。
+`encodeFloatRGBA()` 使用所有 32 位将浮点编码为 RGBA 向量。我在 stackoverflow 的某个地方发现了它的[应用][url-7]，我不确定这是否是最好的处理方式（如果你知道得更好，请让我知道）。
 
 好消息是瑕疵消失了：
 
 ![2-13][url-local-13]
 
 
-
-
-
 <div align="right"><a href="#index">Back to top :arrow_up:</a></div>
 
 
 ## <a name="reference"></a> 参考资料
-- [矩阵百科][url-1]
+- [fieldplay github][url-1]
 
 [url-1]:https://github.com/anvaka/fieldplay
 [url-2]:https://blog.mapbox.com/how-i-built-a-wind-map-with-webgl-b63022b5537f
@@ -149,6 +149,7 @@ Frame 1:
 [url-4]:https://github.com/anvaka/panzoom
 [url-5]:https://github.com/anvaka/query-state
 [url-6]:https://webglstats.com/search?query=OES_texture_float
+[url-7]:https://github.com/anvaka/fieldplay/blob/master/src/lib/utils/floatPacking.js
 
 [url-example1]:https://xxholic.github.io/lab/starry-night/translate.html
 
@@ -170,8 +171,8 @@ Frame 1:
 <details>
 <summary>:wastebasket:</summary>
 
-最近看了[《红线》][url-waste]这部作品，里面赛车设计和场面看着还是蛮过瘾的！
+最近看了十几年前的一部电影[《李米的猜想》][url-last]，故事还是蛮不错的，里面的演员感觉真的好年轻。
 
 </details>
 
-[url-waste]:https://movie.douban.com/subject/3903715/
+[url-last]:https://movie.douban.com/subject/3230459/

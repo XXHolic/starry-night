@@ -6,7 +6,7 @@
 - [参考资料](#reference)
 
 ## <a name="start"></a> 引子
-查看源码，发现用到了这个方法，查资料了解了一下。
+在 [Filed Play：简介][url-pre]中提到了这个方法，查资料了解了一下。
 
 ## <a name="concept"></a> 相关概念
 
@@ -98,6 +98,7 @@ h 为时间步长。
 - [Runge-Kutta方法及其推导][url-2]
 - [龙格库塔法][url-3]
 
+[url-pre]:https://github.com/XXHolic/starry-night/issues/2
 [url-1]:https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 [url-2]:https://blog.zyuzhi.me/2020/03/28/181.html
 [url-3]:https://baike.baidu.com/item/%E9%BE%99%E6%A0%BC%E5%BA%93%E5%A1%94%E6%B3%95/3016350

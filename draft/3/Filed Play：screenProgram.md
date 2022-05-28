@@ -18,6 +18,7 @@
 // 源库路径 src/lib/scene.js
 import createScreenProgram from './programs/screenProgram';
 import createDrawParticlesProgram from './programs/drawParticlesProgram';
+import createVectorFieldEditorState from './editor/vectorFieldState';
 
 // 代码省略
 
@@ -28,6 +29,7 @@ var currentCapturer = null;
 // screen rendering;
 var screenProgram = createScreenProgram(ctx);
 var drawProgram = createDrawParticlesProgram(ctx);
+var vectorFieldEditorState = createVectorFieldEditorState(drawProgram);
 
 // 代码省略
 
@@ -274,7 +276,7 @@ function renderCurrentScreen() {
 - 解除帧缓冲区绑定，绘制的目标变成了颜色缓冲区，也就是说从这里开始，绘制是视觉可见的。
 - `saveLastBbox()` 是为了保持比例进行的处理，这里不做讨论。
 - 开启 α 混合，清空缓冲，绘制 `screenTexture` 纹理。
-- `backgroundTexture` 与 `screenTexture` 进行交互。
+- `backgroundTexture` 与 `screenTexture` 进行交换。
 
 <div align="right"><a href="#index">Back to top :arrow_up:</a></div>
 
@@ -296,8 +298,9 @@ function renderCurrentScreen() {
 <details>
 <summary>:wastebasket:</summary>
 
-最近看了十几年前的一部电影[《李米的猜想》][url-last]，故事还是蛮不错的，里面的演员感觉真的好年轻。
+最近发现《美国众神》第三季出来了，就去看了下。
+
+虽然里面充满了预言和密语式的莫名对话，但这种新神和旧神之间的战争，最后到底会怎么打起来，还真是让我很好奇的坚持看下去了。
 
 </details>
 
-[url-last]:https://movie.douban.com/subject/3230459/
